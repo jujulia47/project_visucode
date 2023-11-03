@@ -1,0 +1,39 @@
+[
+    {
+        "searchProduct": {
+            "produto": {
+                "id": "QRCode",
+                "nome": "chocolate",
+                "marca": "nestle",
+                "medida": "120g",
+                "urlImg": "url",
+                "ingredientes": "aqui vai os ingredientes",
+                "tabela": [
+    
+                ]
+            }
+        }
+    },
+    {
+        "usuario":{
+            "nome": "Jujulia",
+            "email": "batman@gmail.com",
+            "senha": "123",
+            "perfil": "admin" 
+        },
+        "usuario2":{
+            "nome": "Érika",
+            "email": "robin@gmail.com",
+            "senha": "456",
+            "perfil": "user" 
+        }
+    },
+    {
+        "cadastroAdmin": {
+            "usuario": ""
+        }
+    }
+]
+
+//criar outra tela para cadastrar os produtos no banco que só será acessível aos usuários admin
+// outra tela: Cadastro de admins
