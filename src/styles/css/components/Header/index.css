@@ -1,1 +1,1 @@
-.header_user{display:flex;justify-content:space-between;border-bottom:1px solid #a7a7a7;padding:0 16px 16px}
+header{padding:0 11px}.header_user{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #a7a7a7;padding:0 3px 8px;color:#5e5858}

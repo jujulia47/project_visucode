@@ -27,7 +27,7 @@ function MenuLogin() {
               <Icon />
             </li>
             <li>
-              <button className="menubutton_default login_button" onClick={() => setPage("login")}>Já tem uma conta?</button>
+              <button className="menubutton_default menuLogin_button" onClick={() => setPage("login")}>Já tem uma conta?</button>
             </li>
           </ul>
         </div>

@@ -1,7 +1,5 @@
 import React, { useContext } from "react";
 import { AppContext } from "../../context";
-import Header from '../../components/Header'
-import Footer from '../../components/Footer'
 
 import "../../styles/css/pages/VisuRead/index.css";
 
@@ -10,7 +8,7 @@ function VisuRead() {
 
   return (
     <>
-      <section className="visu_read">
+      <section className="visu_read header">
         <div className="img_block">
           <img src="/read.png" alt="" className="img_read" />
         </div>

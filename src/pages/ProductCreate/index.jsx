@@ -18,7 +18,7 @@ function ProductCreate() {
   };
 
   return (
-    <section className="productCreate">
+    <section className="productCreate header">
       <div className="img_block">
         <img src="/photo.png" alt="" className="img_logo" />
       </div>

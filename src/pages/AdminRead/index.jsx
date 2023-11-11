@@ -10,12 +10,12 @@ function VisuRead() {
 
   return (
     <>
-      <section className="admin_read">
+      <section className="admin_read header">
         <div className="img_block">
           <img src="/read.png" alt="" className="admin_read" />
         </div>
         <p className="text_adminRead">Escaneie produtos para ouvir as informações</p>
-        <button className="button_admin">Faça sua primeira leitura</button>
+        <button className="button_default button_admin">Faça sua primeira leitura</button>
       </section>
     </>
   );

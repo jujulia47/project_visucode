@@ -21,7 +21,7 @@ function UserCreate() {
   }
   
     return (
-        <section className="login">
+        <section className="login header">
           <div className="img_block">
             <img src="/visucode_logo.png" alt="" className="img_logo" />
           </div>

@@ -10,7 +10,6 @@ function Header() {
     <p className="header_user" >
       {isAdmin ? 'Olá, Admin' : 'Olá, Érika'}
       {isAdmin ? <img src="/icons/user_admin.png" alt="" /> : <img src="/icons/user.png" alt="" />}
-      
     </p>
     </header>
     </>
