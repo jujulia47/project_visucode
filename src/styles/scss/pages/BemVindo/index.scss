@@ -1,4 +1,4 @@
-.tela_inicial{
+.bem_vindo {
     background-color: #44cfcb;
     height: 100vh;
     margin: auto;
@@ -7,8 +7,25 @@
     align-items: center;
     justify-content: center;
 }
-.text_title{
-    color: #F7FFF7;
+.img_block {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.bemVindo_img {
+    width: 210px;
+    height: 230px;
+    position: absolute;
+}
+.circle {
+    width: 260px;
+    height: 260px;
+    border-radius: 280px;
+    background: rgba(3, 176, 131, 0.15);
+}
+.text_BemVindo {
+    color: #f7fff7;
     text-align: center;
     font-family: Inter;
     font-size: 22px;
@@ -17,8 +34,8 @@
     line-height: normal;
     margin-bottom: 0px;
 }
-.text{
-    color: #F7FFF7;
+.bemVindo_paragraph {
+    color: #f7fff7;
     text-align: center;
     font-family: Inter;
     font-size: 24px;
@@ -26,31 +43,47 @@
     font-weight: 600;
     line-height: normal;
 }
-
-.img_block{
+.buttons_block{
     display: flex;
-    align-items: flex-end;
-    justify-content: center;
-}
-
-.img{
-    width: 210px;
-    height: 230px;
     position: absolute;
+    bottom: 0;
+    width: 100vw;
+    justify-content: space-between;
+    align-items: center;
 }
-.circle{
-    width: 260px;
-    height: 260px;
-    border-radius: 280px;
-    background: rgba(3, 176, 131, 0.15);
+.slick{
+    display: flex;
+    list-style: none;
+    gap: 8px;
+    padding: 0;
+    width: 75px;
 }
-
-.close_button{
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 15px;
-    width: 22px;
-    height: 22px;
+.slick_active_BemVindo{
+    border-radius: 8px;
+    background: rgba(3, 176, 131, 0.80);
+    width: 30px;
+    height: 12px;
+    border: none;
 }
-
+.slick_next{
+    border-radius: 50%;
+    background: #f7fff7;
+    width: 14px;
+    height: 14px;
+    border: none;
+}
+.next_button, .prev_button_BemVindo{
+    color: #F7FFF7;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    background: none;
+    border: none;
+    width: 75px;
+    margin: 0 5px;
+}
+.prev_button_BemVindo{
+    visibility: hidden;
+}

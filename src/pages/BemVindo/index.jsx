@@ -1,23 +1,52 @@
-// import React from "react";
-import '../../styles/css/pages/BemVindo/index.css'
+import React, { useContext } from "react";
+import { AppContext } from "../../context";
+import "../../styles/css/pages/BemVindo/index.css";
 
-function BemVindo(){
-    
-    return(
-        <>
-            <section className="tela_inicial">
-                <img src="icons/botao-excluir.png" alt="" className='close_button'/>
-                <div className='img_block'>
-                    <img src="/cesta.png" alt="" className='img'/>
-                    <div className='circle'></div>
-                </div>
+function BemVindo() {
+  const { setPage } = useContext(AppContext);
 
-                <p className="text_title">Bem-Vindo ao Visucode </p>
-                <p className="text">Identificar os produtos <br/>
-                    ao seu redor ficou acessível</p>
-            </section>
-        </>
-    )
+  return (
+    <>
+      <section className="bem_vindo">
+        <div className="img_block">
+          <img
+            src="/cesta.png"
+            alt="imagem de uma cesta com alimentos"
+            className="bemVindo_img"
+          />
+          <div className="circle"></div>
+        </div>
+        <div className="texts_block">
+          <p className="text_BemVindo">Bem-Vindo ao Visucode </p>
+          <p className="bemVindo_paragraph">
+            Identificar os produtos <br />
+            ao seu redor ficou acessível
+          </p>
+        </div>
+        <div className="buttons_block">
+          <button className="prev_button_BemVindo">Voltar</button>
+          <ul className="slick">
+            <li>
+              <button className="slick_active_BemVindo"></button>
+            </li>
+            <li>
+              <button
+                onClick={() => setPage("telaInicial")}
+                className="slick_next"
+              ></button>
+            </li>
+            <li>
+              <button
+                onClick={() => setPage("menuLogin")}
+                className="slick_next"
+              ></button>
+            </li>
+          </ul>
+          <button onClick={() => setPage("telaInicial")} className="next_button">Próximo</button>
+        </div>
+      </section>
+    </>
+  );
 }
 
-export default BemVindo
+export default BemVindo;
