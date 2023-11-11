@@ -6,33 +6,42 @@ function ProductCreate() {
   const [hasClicked, setHasCliked] = useState(false);
   console.log("hasClicked", hasClicked);
 
-  const { setPage, setSearchProduct } = useContext(AppContext);
+  const { 
+    setPage, 
+    searchProductInfo,
+    setSearchProductInfo,
+    setSearchProduct
+   } = useContext(AppContext);
 
-  const handleSearch = (e) => {
-    e.preventDefault();
-    console.log("textValue", e.target.searchValue.value);
-    const searchValue = e.target.searchValue.value;
+   const handleSearch = (e) => {
+    e.preventDefault()
 
-    setSearchProduct(searchValue);
-    setPage("productUpdate");
-  };
+    const searchValue =  e.target.searchValue.value
+    const newSearchProductInfo = searchProductInfo
+    newSearchProductInfo.cod_barras = searchValue
+
+    setSearchProductInfo(newSearchProductInfo)
+    setSearchProduct(newSearchProductInfo)
+
+    setPage("productUpdate")
+  }
 
   return (
     <section className="productCreate header">
       <div className="img_block">
-        <img src="/photo.png" alt="" className="img_logo" />
+        <img src="/photo.png" alt="" className="img_photo" />
       </div>
       <form action="" method="post">
-        <div>
-          <div className="form_name">
+
+        <div className="form_rows">
+          <div className="form_cod">
             <label htmlFor="" className="label_form_create">
               *Código de Barras
               <input
                 type="number"
                 name=""
                 id=""
-                // placeholder="Código de Barras"
-                className="input_form"
+                className="input_form input_row"
               />
             </label>
           </div>
@@ -43,101 +52,97 @@ function ProductCreate() {
                 type="text"
                 name=""
                 id=""
-                // placeholder="Digite seu nome"
-                className="input_form"
+                className="input_form input_row"
               />
             </label>
           </div>
         </div>
+
         <div className="ingredientes">
           <label htmlFor="" className="label_form_create">
             *Ingredientes
             <textarea
-              // placeholder="Enter comment..."
               maxlength="1000"
               minlength="500"
             />
           </label>
         </div>
-        <div>
-          <div className="create_password">
+
+        <div className="form_rows">
+          <div className="create_qty">
             <label htmlFor="" className="label_form_create">
               *Quantidade
               <input
                 type="text"
                 name=""
                 id=""
-                // placeholder="Quantidade"
-                className="input_form"
+                className="input_form input_row"
               />
             </label>
           </div>
-          <div className="create_password">
+          <div className="create_value">
             <label htmlFor="" className="label_form_create">
               *Valor energético
               <input
                 type="text"
                 name=""
                 id=""
-                // placeholder="Valor energético"
-                className="input_form"
+                className="input_form input_row"
               />
             </label>
           </div>
         </div>
-        <div>
-          <div className="create_password">
+
+        <div className="form_rows">
+          <div className="create_protein">
             <label htmlFor="" className="label_form_create">
               *Proteína
               <input
                 type="text"
                 name=""
                 id=""
-                // placeholder="Proteína"
-                className="input_form"
+                className="input_form input_row"
               />
             </label>
           </div>
-          <div className="create_password">
+          <div className="create_carbo">
             <label htmlFor="" className="label_form_create">
               *Carboidrato
               <input
                 type="text"
                 name=""
                 id=""
-                // placeholder="Carboidrato"
-                className="input_form"
+                className="input_form input_row"
               />
             </label>
           </div>
         </div>
 
-        <div>
-          <div className="create_password">
+        <div className="form_rows">
+          <div className="create_total">
             <label htmlFor="" className="label_form_create">
               *Gorduras totais
               <input
                 type="text"
                 name=""
                 id=""
-                // placeholder="Gorduras totais"
-                className="input_form"
+                className="input_form input_row"
               />
             </label>
           </div>
-          <div className="create_password">
+          <div className="create_sodium">
             <label htmlFor="" className="label_form_create">
               *Sódio
               <input
                 type="text"
                 name=""
                 id=""
-                // placeholder="Sódio"
-                className="input_form"
+                className="input_form input_row"
               />
             </label>
           </div>
         </div>
+
       </form>
       <div className="button_container">
         <button
@@ -148,7 +153,7 @@ function ProductCreate() {
         </button>
         {!hasClicked ? (
           <button
-            className="button_default form_button"
+            className="button_default form_buttonSearch"
             onClick={() => setHasCliked(true)}
           >
             Buscar Produtos

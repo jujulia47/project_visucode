@@ -1,4 +1,4 @@
-form{
+.form{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -41,4 +41,5 @@ form{
 .login_button{
     background: #2D82B7;
     color: #FFF;
+    margin-top: 58px !important;
 }

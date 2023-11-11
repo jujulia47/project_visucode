@@ -19,12 +19,15 @@
     "sass": "^1.32.7"
   },
   "scripts": {
-    "start": "concurrently \"react-scripts start\" \" yarn sass \"",
+    "start": "concurrently \"react-scripts start\" \" npm run sass \"",
+    "start-node": "concurrently \"cd ./backend && npx prisma studio \" \"cd ./backend && npm run dev \"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "sass": "sass --watch --no-source-map src/styles/scss:src/styles/css --style compressed",
     "eject": "react-scripts eject"
   },
+
+   
   "eslintConfig": {
     "extends": [
       "react-app",
