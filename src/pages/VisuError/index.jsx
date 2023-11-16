@@ -12,8 +12,8 @@ function VisuRead() {
         <div className="img_block">
           <img src="/error.png" alt="" className="img_error" />
         </div>
-        <p className="text_visuError">Nenhum produto encontrado! Escaneie um novo código de barras</p>
-        <button className="button_error">Faça uma nova leitura</button>
+        <p className="text_read">Nenhum produto encontrado! Escaneie um novo código de barras</p>
+        <button className="add_button button_read">Faça uma nova leitura</button>
       </section>
     </>
   );

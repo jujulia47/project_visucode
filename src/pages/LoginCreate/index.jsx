@@ -1,71 +1,94 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { AppContext } from "../../context";
 import "../../styles/css/pages/LoginCreate/index.css";
 
 function LoginCreate() {
-  const { setPage } = useContext(AppContext);
+  const [hasClicked, setHasCliked] = useState(false)
+
+  const { 
+    setPage,
+    searchUserInfo,
+    setSearchUserInfo,
+    setSearchUser,
+    setCreateUser
+  } = useContext(AppContext);
+
+  const handleSearch = (e) => {
+    e.preventDefault()
+
+    const searchValue =  e.target.searchValue.value
+    const newSearchUserInfo = searchUserInfo
+    newSearchUserInfo.email = searchValue
+
+    setSearchUserInfo(newSearchUserInfo)
+    setSearchUser(newSearchUserInfo)
+
+    setPage("userUpdate")
+  }
+
+  const handleCreate = (e) => {
+    e.preventDefault()
+
+    console.log("e_target", e.target.name);
+
+    setSearchUserInfo({
+      "name": e.target.name.value,
+      "email": e.target.email.value,
+      "password": e.target.password.value,
+      "isAdmin": false,
+    });
+
+    setCreateUser("searchUserInfosetSearchUserInfo")
+  }
 
   return (
     <>
-      <section className="login">
-        <div className="img_block">
-          <img src="/visucode_logo.png" alt="" className="img_logo" />
+      <section className="login header">
+        <h1>Cadastre-se</h1>
+
+      <form onSubmit={e => handleCreate(e)} action="" method="post" className="form_user">
+        <div className="form">
+          <label htmlFor="" className="form_label">
+            *E-mail
+            <input
+              type="email"
+              name=""
+              id="email"
+              placeholder="Digite seu e-mail"
+              className="input_form"
+            />
+          </label>
+          <label htmlFor="" className="form_label">
+            *Nome
+            <input
+              type="text"
+              name=""
+              id="name"
+              placeholder="Digite seu nome"
+              className="input_form"
+            />
+          </label>
+          <label htmlFor="" className="form_label">
+            *Senha
+            <input
+              type="password"
+              name=""
+              id="password"
+              placeholder="Digite sua senha"
+              className="input_form"
+            />
+          </label>
         </div>
-        <form action="" method="post">
-        <div className="form_name">
-            <label htmlFor="" className="label_form_create">
-              *Nome
-              <input
-                type="text"
-                name=""
-                id=""
-                placeholder="Digite seu nome"
-                className="input_form"
-              />
-            </label>
-          </div>
-          <div className="create_email">
-            <label htmlFor="" className="label_form_create">
-              *E-mail
-              <input
-                type="email"
-                name=""
-                id=""
-                placeholder="Digite seu e-mail"
-                className="input_form"
-              />
-            </label>
-          </div>
-          <div className="create_password">
-            <label htmlFor="" className="label_form_create">
-              *Senha
-              <input
-                type="password"
-                name=""
-                id=""
-                placeholder="Digite sua senha"
-                className="input_form"
-              />
-            </label>
-          </div>
-        </form>
-        <div className="button_container">
-          <input
-            type="button"
-            value="Salvar"
-            className="button_default login_button"
-            onClick={() => setPage("visuRead")}
-          />
-        </div>
-        <div className="button_container">
-          <input
-            type="button"
-            value="Cancelar"
-            className="cancel_button"
-            onClick={() => setPage("menuLogin")}
-          />
-        </div>
-      </section>
+      
+      <div className="button_container">
+        <button
+          className="button_default add_button"
+        >
+          Adicionar
+        </button>
+      </div>
+      </form>
+    </section>
     </>
   );
 }

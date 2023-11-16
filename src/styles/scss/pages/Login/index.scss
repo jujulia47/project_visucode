@@ -1,33 +1,6 @@
-.form{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 24px;
-}
 .form_password{
     margin-top: 25px;
 }
-.label_form{
-    color: #1E1E1E;
-    font-size: 14px;
-    line-height: 24px;
-}
-.input_form{
-    display: block;
-    border-radius: 8px;
-    border: 1px solid #D0D5DD;
-    background: #FFF;
-    width: 320px;
-    height: 44px;
-    padding: 0px 12px;
-    box-sizing: border-box;
-}
-.input_form::placeholder{
-    color: #ABABAB;
-    font-size: 14px;
-}
-
 .reset_password{
     text-align: right;
     padding-right: 25px;
@@ -38,8 +11,9 @@
     font-size: 14px;
     line-height: 24px;
 }
-.login_button{
-    background: #2D82B7;
-    color: #FFF;
-    margin-top: 58px !important;
+.button_login{
+    .add_button{
+        margin-top: 58px !important;
+        backdrop-filter: blur(3px);
+    }
 }

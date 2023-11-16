@@ -30,7 +30,7 @@ model Product {
   carb       Decimal
   fat        Decimal
   sodium     Decimal
-  cod_barras Int
+  cod_barras Int @unique
   created_at DateTime
   @@map("products")
 }

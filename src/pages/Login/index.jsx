@@ -1,18 +1,22 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { AppContext } from "../../context";
 import "../../styles/css/pages/Login/index.css";
 
 function Login() {
   const { setPage, setEmail } = useContext(AppContext);
+  // const [showPassword, setShowPassword] = useState(false);
 
   const handleLogin = (e) => {
     e.preventDefault();
 
     const searchValue = e.target.userEmail.value;
 
+    console.log("searchValue", searchValue);
     setEmail(searchValue);
     setPage("visuRead");
   };
+
+  const eyeIcon = 'imagem aqui'
 
   return (
     <>
@@ -20,12 +24,14 @@ function Login() {
         <div className="img_block">
           <img src="/visucode_logo.png" alt="" className="img_logo" />
         </div>
+
         <form onSubmit={(e) => handleLogin(e)} action="" method="get">
           <div className="form">
             <div className="form_email">
-              <label htmlFor="" className="label_form">
+              <label htmlFor="" className="form_label">
                 *E-mail
                 <input
+                  required
                   type="email"
                   name=""
                   id="userEmail"
@@ -35,13 +41,14 @@ function Login() {
               </label>
             </div>
             <div className="form_password">
-              <label htmlFor="" className="label_form">
+              <label htmlFor="" className="form_label">
                 *Senha
                 <input
+                  required
                   type="password"
                   name=""
                   id=""
-                  placeholder="Digite sua senha"
+                  placeholder={`Digite sua senha ${eyeIcon}`}
                   className="input_form"
                 />
               </label>
@@ -52,8 +59,8 @@ function Login() {
               <a href="#">Esqueci minha senha</a>
             </p>
           </div>
-          <div className="button_container">
-            <button className="button_default login_button">Entrar</button>
+          <div className="button_login">
+            <button className="button_default add_button">Entrar</button>
           </div>
         </form>
       </section>

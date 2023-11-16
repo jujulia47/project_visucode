@@ -31,7 +31,7 @@ function MenuLogin() {
             </li>
           </ul>
         </div>
-        <div className="buttons_block">
+        <div className="buttons_slick slick_menu">
           <button onClick={() => setPage("telaInicial")} className="prev_button">
             Voltar
           </button>
@@ -47,7 +47,7 @@ function MenuLogin() {
             </li>
             <li>
               <button
-                className="slick_active_login"
+                className="slick_active"
               ></button>
             </li>
           </ul>

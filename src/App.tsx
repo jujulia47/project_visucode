@@ -6,13 +6,13 @@ import TelaInicial from './pages/TelaInicial';
 import MenuLogin from './pages/MenuLogin';
 import Login from './pages/Login';
 import LoginCreate from './pages/LoginCreate';
-import VisuRead from './pages/VisuRead'
-import ProductCreate from './pages/ProductCreate'
-import ProductUpdate from './pages/ProdutcUpdate'
-import ProductDelete from './pages/ProductDelete'
-import UserCreate from './pages/UserCreate'
-import UserUpdate from './pages/UserUpdate'
-// import UserDelete from './pages/UserDelete'
+import VisuRead from './pages/VisuRead';
+import VisuResult from './pages/VisuResult';
+import VisuUpdate from './pages/VisuUpdate';
+import ProductCreate from './pages/ProductCreate';
+import ProductUpdate from './pages/ProdutcUpdate';
+import UserCreate from './pages/UserCreate';
+import UserUpdate from './pages/UserUpdate';
 
 
 
@@ -41,12 +41,12 @@ function App() {
         }
         
           {page === "visuRead" && <VisuRead/>}
+          {page === "visuResult" && <VisuResult/>}
+          {page === "visuUpdate" && <VisuUpdate/>}
           {page === "productCreate" && <ProductCreate/>}
           {page === "productUpdate" && <ProductUpdate/>}
-          {page === "productDelete" && <ProductDelete/>}
           {page === "userCreate" && <UserCreate/>}
           {page === "userUpdate" && <UserUpdate/>}
-          {/* {page === "userDelete" && <UserDelete/>} */}
 
         {
           page !== "bemVindo" &&

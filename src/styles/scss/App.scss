@@ -36,57 +36,205 @@
       transform: rotate(360deg);
     }
   }
-  .button_default {
-    width: 320px;
-    height: 44px;
-    border-radius: 8px;
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 16px auto 0;
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 24px;
-    border: 1px solid #d0d5dd;
-    cursor: pointer;
-}
+
+//common style
 .header{
-    overflow-y: scroll;
-    height: calc(100vh - 130px);
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: calc(100vh - 130px);
 }
+.img_block {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.text_read{
+  color: #5E5858;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-align: center;
+  margin-top: 30px;
+}
+h1{
+  color: #000;
+  text-align: center;
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+}
+//buttons
 button {
   padding: 0;
   border: 0;
 }
+.button_default {
+  width: 320px;
+  height: 44px;
+  border-radius: 8px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 16px auto 0;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  border: 1px solid #d0d5dd;
+  cursor: pointer;
+}
+.add_button{
+  background: #0568A6;
+  color: #FFF;
+}
+.save_button{
+  background: #07B2D9;
+  color: #FFF;
+}
+.delete_button{
+  background: #D2424B;
+  color: #FFF;
+}
+.cancel_button{
+  width: 320px;
+  height: 44px;
+  border-radius: 8px;
+  background: #fff;
+  border: 1px solid #0568A6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin:15px  auto;
+  color: #1E1E1E;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+}
+.buttons_slick{
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  justify-content: space-between;
+  align-items: center;
+}
+.slick{
+  display: flex;
+  list-style: none;
+  gap: 8px;
+  padding: 0;
+  width: 75px;
+}
+.slick_active{
+  border-radius: 8px;
+  width: 30px;
+  height: 12px;
+  border: none;
+}
+.slick_next{
+  border-radius: 50%;
+  width: 14px;
+  height: 14px;
+  border: none;
+}
+.next_button, .prev_button{
+  color: #F7FFF7;;
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 600;
+  background: none;
+  border: none;
+  width: 75px;
+  margin: 0 5px;
+}
+
+//form
+.form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+form > div + div {
+  margin-top: 15px;
+}
+.input_form{
+  display: block;
+  border-radius: 8px;
+  border: 1px solid #D0D5DD;
+  background: #FFF;
+  width: 320px;
+  height: 44px;
+  padding: 0px 12px;
+  box-sizing: border-box;
+}
+.input_form::placeholder{
+  color: #ABABAB;
+  font-size: 14px;
+}
+.form_label{
+  color: #1E1E1E;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
 textarea {
   display: block;
   border-radius: 8px;
   border: 1px solid #d0d5dd;
   background: #fff;
-  width: 330px;
+  width: 320px;
   height: 44px;
   padding: 12px;
   box-sizing: border-box;
 }
-
-.form_rows{
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  width: 100vw;
+.disabled{
+  background: #D0D5DD;
+  padding: 0px 10px;
+  box-sizing: border-box;
 }
 
-.input_row{
-  width: 155px !important;
-}
 
-// .delete_page .header input{
-//   opacity: 0.4;
-//   background: #D9D9D9;
-// }
-
-.delete_page.disable{
+.delete_page,
+.delete_page input,
+.delete_page textarea {
   opacity: 0.4;
-  background: none;
+  background: #D9D9D9;
+}
+
+.modal {
+  width: 280px;
+  height: 139px;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+  position: fixed;
+  top: 30%;
+  right: 0;
+  left: 0;
+  margin: auto;
+
+  .button_container {
+      display: flex;
+  }
+  button {
+      width: 85px;
+      height: 35px;
+      font-size: 14px;
+  }
+  .alert {
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+  }
+  p{
+    color: #000;
+    font-weight: 500;
+  }
 }

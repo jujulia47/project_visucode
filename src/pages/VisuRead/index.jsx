@@ -12,8 +12,8 @@ function VisuRead() {
         <div className="img_block">
           <img src="/read.png" alt="" className="img_read" />
         </div>
-        <p className="text_visuRead">Escaneie produtos para ouvir as informações</p>
-        <button className="button_read">Faça sua primeira leitura</button>
+        <p className="text_read">Escaneie produtos para ouvir as informações</p>
+        <button className="add_button button_read">Faça sua primeira leitura</button>
       </section>
     </>
   );

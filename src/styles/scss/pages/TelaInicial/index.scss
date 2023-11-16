@@ -1,5 +1,5 @@
 .tela_inicial{
-    background-color: #2D82B7;
+    background-color: #07B2D9;
     height: 100vh;
     margin: auto;
     display: flex;
@@ -13,40 +13,21 @@
 }
 .text_title_TelaInicial{
     color: #F7FFF7;
-    text-align: center;
-    font-family: Inter;
     font-size: 24px;
-    font-style: normal;
     font-weight: 600;
-    line-height: normal;
     margin-bottom: 0px;
 }
 .text_TelaInicial{
     color: #F7FFF7;
     text-align: center;
-    font-family: Inter;
     font-size: 18px;
-    font-style: normal;
     font-weight: 600;
-    line-height: normal;
 }
-.slick_active_TelaInicial{
-    border-radius: 8px;
-    background: #224870;
-    width: 30px;
-    height: 12px;
-    border: none;
+.slick_telaInicial{
+    .slick_next{
+        background: #F7FFF7;
+    }
+    .slick_active{
+        background: #AFD8E1;
+    }
 }
-.next_button, .prev_button{
-    color: #F7FFF7;
-    font-family: Inter;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-    background: none;
-    border: none;
-    width: 75px;
-    margin: 0 5px;
-}
-

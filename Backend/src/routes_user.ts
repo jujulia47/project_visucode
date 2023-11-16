@@ -5,7 +5,6 @@ import { FastifyInstance } from 'fastify'
 export async function AppUser(server: FastifyInstance) {
     server.get('/user', async () => {
         const users = await prisma.user.findMany()
-
         return users
     })
 
@@ -58,7 +57,6 @@ server.post('/user', async (request) => {
                 created_at: new Date()
             }
         });
-
         return newUser;
     }
 });
@@ -147,7 +145,6 @@ server.post('/product', async (request) => {
         fat: z.string(),
         sodium: z.string(),
         cod_barras: z.number()
-
     });
 
     // Recupera os dados do frontend
@@ -174,7 +171,7 @@ server.post('/product', async (request) => {
 server.put('/product/id/:id', async (request) => {
     // objeto zod para o id
     const idParam = z.object({
-        id: z.string().uuid()
+        id: z.string()
     })
     // objeto zod para o body
     const putBody = z.object({
@@ -189,15 +186,15 @@ server.put('/product/id/:id', async (request) => {
         cod_barras: z.number()
         
     })
-
     // recupera dados do frontend com o params
     const {id} = idParam.parse(request.params)
+
     // recupera dados do frontend com o body
     const {name, ingredient, quantity, energetic, protein, carb, fat, sodium, cod_barras} = putBody.parse(request.body)
     // atualiza o produto no banco de dados
     const productUpdated = await prisma.product.update({
         where: {
-            id: id
+            id: id,
         },
         data: {
             name,

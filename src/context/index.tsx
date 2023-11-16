@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from "react";
+import React, { createContext, useState, useEffect } from "react";
 
 export const AppContext = createContext({} as any);
 
@@ -9,14 +9,16 @@ export const AppProvider = ({ children }: any) => {
   const [email, setEmail] = useState();
 
   // crud user
-  const [udateUser, setUpdateUser] = useState(null);
+  const [updateUser, setUpdateUser] = useState(null);
   const [createUser, setCreateUser] = useState(null);
   const [searchUser, setSearchUser] = useState(null);
+  const [deleteUser, setDeleteUser] = useState(null);
 
   //crud product
-  const [udateProduct, setUpdateProduct] = useState(null);
+  const [updateProduct, setUpdateProduct] = useState(null);
   const [createProduct, setCreateProduct] = useState(null);
   const [searchProduct, setSearchProduct] = useState(null);
+  const [deleteProduct, setDeleteProduct] = useState(null);
 
   const [searchProductInfo, setSearchProductInfo] = useState({
     "name": "",
@@ -28,9 +30,29 @@ export const AppProvider = ({ children }: any) => {
 		"fat": "",
 		"sodium": "",
 		"cod_barras": 0,
+  } as {
+    "id"?: String | null,
+    "name": String,
+		"ingredient": String,
+		"quantity": Number,
+		"energetic": Number,
+		"protein": String,
+		"carb": String,
+		"fat": String,
+		"sodium": String,
+		"cod_barras": Number,
   });
 
   const [searchUserInfo, setSearchUserInfo] = useState({
+		"id": null,
+    "name": "",
+    "email": null,
+    "password": "",
+    "isAdmin": true,
+    "created_at": ""
+  });
+
+  const [logedUserInfo, setlogedUserInfo] = useState({
 		"id": null,
     "name": "",
     "email": null,
@@ -43,17 +65,47 @@ export const AppProvider = ({ children }: any) => {
   
   useEffect(() => {
     const options = {method: 'GET'};
+
+    console.log("searchValue__email", email);
     
-    if(searchUser && searchUserInfo.email) {
-      fetch(`http://localhost:3333/user/${searchUserInfo.email}`, options)
+    if(email) {
+      fetch(`http://localhost:3333/user/${email}`, options)
         .then(response => response.json())
         .then(response => {
+          // setSearchUserInfo(response)
+          console.log("response___", response);
+          
+          setlogedUserInfo(response)
           setSearchUserInfo(response)
+          setIsAdmin(response.isAdmin)
+          setSearchUser(null)
+        })
+        .catch(err => console.error("response__err", err));
+    }
+  }, [email])
+
+
+  useEffect(() => {
+    const options = {method: 'GET'};
+
+    console.log("searchValue__email", email);
+    
+    if(searchUser) {
+      fetch(`http://localhost:3333/user/${searchUser}`, options)
+        .then(response => response.json())
+        .then(response => {
+          // setSearchUserInfo(response)
+          console.log("response___", response);
+          
+          setSearchUserInfo(response)
+          setIsAdmin(response.isAdmin)
           setSearchUser(null)
         })
         .catch(err => console.error("response__err", err));
     }
   }, [searchUser])
+
+  
 
   useEffect(() => {
     const options = {
@@ -92,19 +144,22 @@ export const AppProvider = ({ children }: any) => {
       body: JSON.stringify(searchUserInfo)
     };
 
-    if(udateUser && searchUserInfo.id) {
+    console.log("annn_", searchUserInfo);
+    
+
+    if(updateUser && searchUserInfo.id) {
       fetch(`http://localhost:3333/user/id/${searchUserInfo.id}`, options)
         .then(response => response.json())
         .then(response => {
           console.log("response__put", response)
-          setSearchUserInfo({
-            "id": null,
-            "name": "",
-            "email": null,
-            "password": "",
-            "isAdmin": true,
-            "created_at": ""
-          })
+          // setSearchUserInfo({
+          //   "id": null,
+          //   "name": "",
+          //   "email": null,
+          //   "password": "",
+          //   "isAdmin": true,
+          //   "created_at": ""
+          // })
 
           setUpdateUser(null)
 
@@ -112,23 +167,39 @@ export const AppProvider = ({ children }: any) => {
         })
         .catch(err => console.error("response__err", err));
     }
-  }, [udateUser])
+  }, [updateUser])
 
-
-  //email login
   useEffect(() => {
-    const options = {method: 'GET'};
+    const options = {method: 'DELETE'};
+
+    console.log('Delete', searchUserInfo);
     
-    if(email) {
-      fetch(`http://localhost:3333/user/${email}`, options)
+    if(searchUserInfo?.id) {
+      fetch(`http://localhost:3333/user/id/${searchUserInfo.id}`, options)
         .then(response => response.json())
         .then(response => {
-          console.log("response__", response)
-          setIsAdmin(response.isAdmin)
+          setSearchProductInfo(response)
+          setSearchProduct(null)
         })
         .catch(err => console.error("response__err", err));
     }
-  }, [email])
+  }, [deleteUser])
+
+
+  //email login
+  // useEffect(() => {
+  //   const options = {method: 'GET'};
+    
+  //   if(email) {
+  //     fetch(`http://localhost:3333/user/${email}`, options)
+  //       .then(response => response.json())
+  //       .then(response => {
+  //         console.log("response__", response)
+  //         setIsAdmin(response.isAdmin)
+  //       })
+  //       .catch(err => console.error("response__err", err));
+  //   }
+  // }, [email])
 
   //REQUISIÇÕES PRODUTO
 
@@ -141,12 +212,87 @@ export const AppProvider = ({ children }: any) => {
       fetch(`http://localhost:3333/product/${searchProductInfo.cod_barras}`, options)
         .then(response => response.json())
         .then(response => {
+          console.log("response", response);
+          
           setSearchProductInfo(response)
+          setPage("productUpdate");
           setSearchProduct(null)
         })
         .catch(err => console.error("response__err", err));
     }
   }, [searchProduct])
+
+  useEffect(() => {
+    const options = {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json', 'User-Agent': 'insomnia/2023.5.8'},
+      body: JSON.stringify(searchProductInfo)
+    };
+    console.log("options_", options);
+
+    if(createProduct && searchProductInfo.cod_barras) {
+      fetch('http://localhost:3333/product', options)
+        .then(response => response.json())
+        .then(response => {
+          console.log(response)
+            setSearchProductInfo({
+              "id":null,
+              "name": "",
+              "ingredient": "",
+              "quantity": 1,
+              "energetic": 1,
+              "protein": "",
+              "carb": "",
+              "fat": "",
+              "sodium": "",
+              "cod_barras": 0,
+            })
+
+            setCreateProduct(null)
+  
+            window.alert("Novo cadastro, eu acho")
+        })
+        .catch(err => console.error(err));
+    }
+  }, [createProduct])
+
+  useEffect(() => {
+    const options = {
+      method: 'PUT',
+      headers: {'Content-Type': 'application/json', 'User-Agent': 'insomnia/2023.5.8'},
+      body: JSON.stringify(searchProductInfo)
+      
+    };
+
+    console.log("updateProduct", updateProduct);
+    
+    if(updateProduct) {
+      fetch(`http://localhost:3333/product/id/${updateProduct}`, options)
+        .then(response => response.json())
+        .then(response => {
+          setUpdateProduct(null)
+
+          window.alert("atualizou, eu acho")
+        })
+        .catch(err => console.error("response", err));
+    }
+  }, [updateProduct])
+
+  useEffect(() => {
+    const options = {method: 'DELETE'};
+
+    console.log('Delete', searchProductInfo);
+    
+    if(false && searchProductInfo?.id) {
+      fetch(`http://localhost:3333/product/id/${searchProductInfo.id}`, options)
+        .then(response => response.json())
+        .then(response => {
+          setSearchProductInfo(response)
+          setSearchProduct(null)
+        })
+        .catch(err => console.error("response__err", err));
+    }
+  }, [deleteProduct])
 
   return (
     <AppContext.Provider
@@ -154,18 +300,27 @@ export const AppProvider = ({ children }: any) => {
         page,
         setPage,
         isAdmin,
-        searchProductInfo,
-        setSearchProductInfo,
+        email, 
+        setEmail,
+
+        setUpdateUser,
+        setCreateUser,
+        setSearchUser,
+        setDeleteUser,
+
         setUpdateProduct,
         setCreateProduct,
         setSearchProduct,
+        setDeleteProduct,
+
+        searchProductInfo,
+        setSearchProductInfo,
+
         searchUserInfo, 
         setSearchUserInfo,
-        email, 
-        setEmail,
-        setUpdateUser,
-        setCreateUser,
-        setSearchUser
+
+        logedUserInfo, 
+        setlogedUserInfo
       }}
     >
       {children}

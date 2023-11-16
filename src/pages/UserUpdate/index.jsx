@@ -3,92 +3,146 @@ import { AppContext } from "../../context";
 import "../../styles/css/pages/UserUpdate/index.css";
 
 function UserUpdate() {
-
-  const { 
-    searchUserInfo,
-    setSearchUserInfo,
-    setUpdateUser
-  } = useContext(AppContext);
-  const [inputValue, setInputValue] = useState(searchUserInfo.name)
-
+  const { searchUserInfo, setSearchUserInfo, setUpdateUser, setDeleteUser } =
+    useContext(AppContext);
+  const [inputValue, setInputValue] = useState(searchUserInfo);
+  const [showModal, setShowModal] = useState(false);
 
   const handleUpdate = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    const searchValuePassword = e.target.password.value
-    const searchValueName = e.target.name.value
+    const searchValuePassword = e.target.password.value;
+    const searchValueName = e.target.name.value;
+    const searchValueIsAdmin = e.target.isAdmin.value;
 
-    const newSearchUserInfo = searchUserInfo
-    newSearchUserInfo.password = searchValuePassword
-    newSearchUserInfo.name = searchValueName
+    const newSearchUserInfo = searchUserInfo;
+    newSearchUserInfo.password = searchValuePassword;
+    newSearchUserInfo.isAdmin = Boolean(searchValueIsAdmin);
 
-    setSearchUserInfo(newSearchUserInfo)
-    setUpdateUser(newSearchUserInfo)
-  }
+    newSearchUserInfo.name = searchValueName;
+
+    setSearchUserInfo(newSearchUserInfo);
+    setUpdateUser(newSearchUserInfo);
+  };
 
   return (
-    <section className="login header">
-      <div className="img_block">
-        <img src="/visucode_logo.png" alt="" className="img_logo" />
-      </div>
-      <form onSubmit={e => handleUpdate(e)} action="" method="post">
+    <>
+      <section className="login header">
+        <h1>Editar Usuário</h1>
+        <form
+          onSubmit={(e) => handleUpdate(e)}
+          action=""
+          method="post"
+          className="form_user"
+        >
+          <div className="form">
+            <label htmlFor="" className="form_label">
+              *E-mail
+              <input
+                required
+                type="email"
+                disabled
+                id="email"
+                value={searchUserInfo && searchUserInfo.email}
+                placeholder="Digite seu e-mail"
+                className="input_form email_disabled"
+              />
+            </label>
+            <label htmlFor="" className="form_label">
+              *Nome
+              <input
+                required
+                type="text"
+                name="name"
+                id="name"
+                value={inputValue.name}
+                onChange={(e) =>
+                  setInputValue({ ...inputValue, name: e.target.value })
+                }
+                placeholder="Digite seu nome"
+                className="input_form"
+              />
+            </label>
+            <label htmlFor="" className="form_label">
+              *Senha
+              <input
+                required
+                type="password"
+                name=""
+                id="password"
+                value={inputValue.password}
+                onChange={(e) =>
+                  setInputValue({ ...inputValue, password: e.target.value })
+                }
+                placeholder="Digite sua senha"
+                className="input_form"
+              />
+            </label>
+            <div className="checkbox_container">
+              <div className="checkbox">
+                <input
+                  className="checkbox_form"
+                  type="radio"
+                  name="isAdmin"
+                  id="isAdmin"
+                  value={true}
+                />
+                <label className="form_label" for="isAdmin" htmlFor="">
+                  Administrador
+                </label>
+              </div>
+              <div className="checkbox">
+                <input
+                  className="checkbox_form"
+                  type="radio"
+                  name="isAdmin"
+                  value={false}
+                  id="isNotAdmin"
+                />
+                <label className="form_label" for="isNotAdmin" htmlFor="">
+                  Usuário
+                </label>
+              </div>
+            </div>
+          </div>
+          <div className="button_container">
+            <button className="button_default save_button">Salvar</button>
+          </div>
+        </form>
+            <button
+              className="button_default delete_button"
+              onClick={() => setShowModal(!showModal)}
+            >
+              Excluir
+            </button>
+      </section>
 
-        <div className="create_email">
-          <label htmlFor="" className="label_form_create">
-            *E-mail
-            <input
-              type="email"
-              disabled
-              id="email"
-              value={searchUserInfo && searchUserInfo.email}
-              placeholder="Digite seu e-mail"
-              className="input_form email_disabled"
-            />
-          </label>
-        </div>
-        <div className="form_name">
-          <label htmlFor="" className="label_form_create">
-            *Nome
-            <input
-              type="text"
-              name="name"
-              id="name"
-              value={inputValue}
-              onChange={e => setInputValue(e.target.value)}
-              placeholder="Digite seu nome"
-              className="input_form"
-            />
-          </label>
-        </div>
-        <div className="create_password">
-          <label htmlFor="" className="label_form_create">
-            *Senha
-            <input
-              type="password"
-              name=""
-              id="password"
-              value={searchUserInfo && searchUserInfo.password}
-              placeholder="Digite sua senha"
-              className="input_form"
-            />
-          </label>
-        </div>
-        <div className="button_container">
-          <button
-            className="button_default button_default login_button"
-          >
-            Salvar
-          </button>
-
-          <button
-            className="button_default delete_button"
-            onClick={() => window.alert("excluído")}
-          >
-            Excluir
-          </button>
-        </div>
-      </form>
-    </section>
+      {showModal ? (
+        <section className="modal">
+          <div className="alert">
+            <img src="/icons/warning.png" alt="warning" />
+            <p>Deseja excluir este produto?</p>
+          </div>
+          <div className="button_container">
+            <button
+              className="button_default delete_button"
+              // onClick={() => window.alert("excluído")}
+              onClick={() => setDeleteUser(Math.random())}
+            >
+              Sim
+            </button>
+            <button
+              className="button_default add_button"
+              onClick={() => setShowModal(!showModal)}
+            >
+              Não
+            </button>
+          </div>
+        </section>
+      ) : (
+        ""
+      )}
+    </>
   );
 }
 

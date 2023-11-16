@@ -17,7 +17,7 @@ function TelaInicial() {
           informações
         </p>
 
-        <div className="buttons_block">
+        <div className="buttons_slick slick_telaInicial">
           <button onClick={() => setPage("bemVindo")} className="prev_button">
             Voltar
           </button>
@@ -27,7 +27,7 @@ function TelaInicial() {
             </li>
             <li>
               <button
-                className="slick_active_TelaInicial"
+                className="slick_active"
               ></button>
             </li>
             <li>

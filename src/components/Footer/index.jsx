@@ -21,6 +21,14 @@ function Footer() {
             <img src="./icons/search.png" alt="" />
             {isAdmin ? "" : <p>Produtos</p>}
           </li>
+          {!isAdmin && ( 
+            <>
+          <li className={`icon_user ${page === "visuUpdate" ? "active" : ""}`} onClick={() => setPage("visuUpdate")}>
+            <img src="./icons/user.png" alt="" />
+            <p>Usuário</p>
+          </li>
+            </>
+          )}
           {isAdmin && ( 
             <>
               <li className={`icon_cart ${page === "productCreate" ? "active" : ""}`} onClick={() => setPage("productCreate")}>

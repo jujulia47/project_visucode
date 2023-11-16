@@ -3,14 +3,12 @@ import { AppContext } from "../../context";
 import "../../styles/css/components/Header/index.css";
 
 function Header() {
-  const { isAdmin } = useContext(AppContext);
   return (
     <>
     <header>
-    <p className="header_user" >
-      {isAdmin ? 'Olá, Admin' : 'Olá, Érika'}
-      {isAdmin ? <img src="/icons/user_admin.png" alt="" /> : <img src="/icons/user.png" alt="" />}
-    </p>
+      <p className="header_user" >
+        Sair <img src="/icons/sign_out.png" alt="" />
+      </p>
     </header>
     </>
   );

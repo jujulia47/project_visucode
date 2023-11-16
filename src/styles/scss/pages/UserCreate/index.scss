@@ -1,12 +1,25 @@
+.form_user{
+    .form_label{
+        margin-top: 15px;
+    }
+}
+
+.checkbox_container{
+    width: 100vw;
+    margin-left: 48px;
+    .checkbox{
+        display: flex;
+        align-items: baseline;
+    }
+}
+
 .container_search {
     display: flex;
     position: relative;
     justify-content: center;
     width: min-content;
     margin: 16px auto;
-
 }
-
 .search__image {
     position: absolute;
     right: 0;
