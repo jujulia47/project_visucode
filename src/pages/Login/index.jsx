@@ -16,8 +16,6 @@ function Login() {
     setPage("visuRead");
   };
 
-  const eyeIcon = 'imagem aqui'
-
   return (
     <>
       <section className="login">
@@ -48,7 +46,7 @@ function Login() {
                   type="password"
                   name=""
                   id=""
-                  placeholder={`Digite sua senha ${eyeIcon}`}
+                  placeholder= "Digite sua senha"
                   className="input_form"
                 />
               </label>
