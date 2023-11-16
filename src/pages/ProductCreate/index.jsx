@@ -13,6 +13,8 @@ function ProductCreate() {
     setCreateProduct,
   } = useContext(AppContext);
 
+  console.log("searchProductInfo", searchProductInfo);
+
   const handleSearch = (e) => {
     e.preventDefault();
 

@@ -13,16 +13,23 @@ function UserUpdate() {
 
     const searchValuePassword = e.target.password.value;
     const searchValueName = e.target.name.value;
-    const searchValueIsAdmin = e.target.isAdmin.value;
+    const searchValueIsAdmin = e.target.isAdmin.value === "true";
 
     const newSearchUserInfo = searchUserInfo;
-    newSearchUserInfo.password = searchValuePassword;
-    newSearchUserInfo.isAdmin = Boolean(searchValueIsAdmin);
-
     newSearchUserInfo.name = searchValueName;
+    newSearchUserInfo.password = searchValuePassword;
+    newSearchUserInfo.isAdmin = searchValueIsAdmin;
+
 
     setSearchUserInfo(newSearchUserInfo);
     setUpdateUser(newSearchUserInfo);
+
+    setInputValue({
+      email: "",
+      name: "",
+      password: "",
+      isAdmin: "",
+    });
   };
 
   return (
@@ -85,7 +92,7 @@ function UserUpdate() {
                   type="radio"
                   name="isAdmin"
                   id="isAdmin"
-                  value={true}
+                  value="true"
                 />
                 <label className="form_label" for="isAdmin" htmlFor="">
                   Administrador
@@ -96,7 +103,7 @@ function UserUpdate() {
                   className="checkbox_form"
                   type="radio"
                   name="isAdmin"
-                  value={false}
+                  value="false"
                   id="isNotAdmin"
                 />
                 <label className="form_label" for="isNotAdmin" htmlFor="">
@@ -109,24 +116,23 @@ function UserUpdate() {
             <button className="button_default save_button">Salvar</button>
           </div>
         </form>
-            <button
-              className="button_default delete_button"
-              onClick={() => setShowModal(!showModal)}
-            >
-              Excluir
-            </button>
+        <button
+          className="button_default delete_button"
+          onClick={() => setShowModal(!showModal)}
+        >
+          Excluir
+        </button>
       </section>
 
       {showModal ? (
         <section className="modal">
           <div className="alert">
             <img src="/icons/warning.png" alt="warning" />
-            <p>Deseja excluir este produto?</p>
+            <p>Deseja excluir este usuário?</p>
           </div>
           <div className="button_container">
             <button
               className="button_default delete_button"
-              // onClick={() => window.alert("excluído")}
               onClick={() => setDeleteUser(Math.random())}
             >
               Sim

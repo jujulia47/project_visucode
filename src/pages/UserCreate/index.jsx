@@ -30,14 +30,13 @@ function UserCreate() {
 
   const handleCreate = (e) => {
     e.preventDefault();
-    const searchValueIsAdmin = e.target.isAdmin.value;
-    console.log("e_target", e.target.name);
+    const searchValueIsAdmin = e.target.isAdmin.value === "true";
 
     setSearchUserInfo({
       name: e.target.name.value,
       email: e.target.email.value,
       password: e.target.password.value,
-      isAdmin: Boolean(searchValueIsAdmin),
+      isAdmin: searchValueIsAdmin,
     });
 
     setCreateUser(Math.random());
@@ -94,7 +93,7 @@ function UserCreate() {
                 type="radio"
                 name="isAdmin"
                 id="isAdmin"
-                value={true}
+                value= "true"
               />
               <label className="form_label" htmlFor="">
                 Administrador
@@ -105,7 +104,7 @@ function UserCreate() {
                 className="checkbox_form"
                 type="radio"
                 name="isAdmin"
-                value={false}
+                value= "false"
                 id="isNotAdmin"
               />
               <label className="form_label" htmlFor="">

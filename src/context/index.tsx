@@ -206,13 +206,13 @@ export const AppProvider = ({ children }: any) => {
   useEffect(() => {
     const options = {method: 'GET'};
 
-    console.log('??', searchProductInfo.cod_barras);
+    console.log('??', searchProductInfo);
     
     if(searchProduct && searchProductInfo.cod_barras) {
       fetch(`http://localhost:3333/product/${searchProductInfo.cod_barras}`, options)
         .then(response => response.json())
         .then(response => {
-          console.log("response", response);
+          console.log("response___", response);
           
           setSearchProductInfo(response)
           setPage("productUpdate");
@@ -283,7 +283,7 @@ export const AppProvider = ({ children }: any) => {
 
     console.log('Delete', searchProductInfo);
     
-    if(false && searchProductInfo?.id) {
+    if(searchProductInfo?.id) {
       fetch(`http://localhost:3333/product/id/${searchProductInfo.id}`, options)
         .then(response => response.json())
         .then(response => {

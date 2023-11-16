@@ -37,6 +37,18 @@ function ProductUpdate() {
 
     setSearchProductInfo(newSearchProductInfo);
     setUpdateProduct(searchProductInfo.id);
+
+    setInputValue({
+      name: "",
+      ingredient: "",
+      quantity: "",
+      energetic: "",
+      protein: "",
+      carb: "",
+      fat: "",
+      sodium: "",
+      cod_barras: "",
+    });
   };
 
   return (
