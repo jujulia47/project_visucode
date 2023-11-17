@@ -1,9 +1,7 @@
-import React, { useContext } from "react";
-import { AppContext } from "../../context";
+import React from "react";
 import "../../styles/css/pages/VisuResult/index.css";
 
 function VisuRead() {
-  const { setPage } = useContext(AppContext);
 
   return (
     <>

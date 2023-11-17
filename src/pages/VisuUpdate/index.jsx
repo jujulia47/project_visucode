@@ -111,26 +111,28 @@ function VisuUpdate() {
       </section>
 
       {showModal ? (
-        <section className="modal">
-          <div className="alert">
-            <img src="/icons/warning.png" alt="warning" />
-            <p>Apagar conta?</p>
-          </div>
-          <div className="button_container">
-            <button
-              className="button_default delete_button"
-              onClick={() => handleDelete()}
-            >
-              Sim
-            </button>
-            <button
-              className="button_default add_button"
-              onClick={() => setShowModal(!showModal)}
-            >
-              Não
-            </button>
-          </div>
-        </section>
+        <div className="background-modal">
+          <section className="modal">
+            <div className="alert">
+              <img src="/icons/warning.png" alt="warning" />
+              <p>Apagar conta?</p>
+            </div>
+            <div className="button_container">
+              <button
+                className="button_default delete_button"
+                onClick={() => handleDelete()}
+              >
+                Sim
+              </button>
+              <button
+                className="button_default add_button"
+                onClick={() => setShowModal(!showModal)}
+              >
+                Não
+              </button>
+            </div>
+          </section>
+        </div>
       ) : (
         ""
       )}
