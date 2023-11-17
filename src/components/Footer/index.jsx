@@ -8,7 +8,9 @@ function Footer() {
     <>
       <footer>
         <ul className="footer_user">
-          <li className={`icon_repeat`} onClick={() => window.alert("Repetindo")}>
+          <li className={`icon_repeat`} 
+          // onClick={() => window.alert("Repetindo")}
+          >
             <img src="./icons/repeat.png" alt="" />
             {isAdmin ? "" : <p>Repetir</p>}
           </li>

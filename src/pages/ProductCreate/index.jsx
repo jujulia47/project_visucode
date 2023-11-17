@@ -4,6 +4,17 @@ import "../../styles/css/pages/ProductCreate/index.css";
 
 function ProductCreate() {
   const [hasClicked, setHasCliked] = useState(false);
+  const [inputValue, setInputValue] = useState({
+    name: "",
+    ingredient: "",
+    quantity: "",
+    energetic: "",
+    protein: "",
+    carb: "",
+    fat: "",
+    sodium: "",
+    cod_barras: "",
+  });
 
   const {
     setPage,
@@ -43,7 +54,19 @@ function ProductCreate() {
       cod_barras: Number(e.target.cod_barras.value),
     });
 
-    setCreateProduct("searchProductInfosetSearchProductInfo");
+    setCreateProduct(Math.random());
+    alert("Novo produto cadastrado!");
+    setInputValue({
+      name: "",
+      ingredient: "",
+      quantity: "",
+      energetic: "",
+      protein: "",
+      carb: "",
+      fat: "",
+      sodium: "",
+      cod_barras: "",
+    });
   };
 
   return (
@@ -61,6 +84,10 @@ function ProductCreate() {
               type="number"
               name=""
               id="cod_barras"
+              value={inputValue?.cod_barras}
+              onChange={(e) =>
+                setInputValue({ ...inputValue, cod_barras: e.target.value })
+              }
               className="input_form"
             />
           </label>
@@ -71,12 +98,24 @@ function ProductCreate() {
               type="text"
               name=""
               id="nome"
+              value={inputValue?.name}
+              onChange={(e) =>
+                setInputValue({ ...inputValue, name: e.target.value })
+              }
               className="input_form"
             />
           </label>
           <label htmlFor="" className="form_label">
             *Ingredientes
-            <textarea required id="ingredient" name="" />
+            <textarea
+              required
+              id="ingredient"
+              value={inputValue?.ingredient}
+              onChange={(e) =>
+                setInputValue({ ...inputValue, ingredient: e.target.value })
+              }
+              name=""
+            />
           </label>
           <label htmlFor="" className="form_label">
             *Quantidade
@@ -85,6 +124,10 @@ function ProductCreate() {
               type="number"
               name=""
               id="quantity"
+              value={inputValue?.quantity}
+              onChange={(e) =>
+                setInputValue({ ...inputValue, quantity: e.target.value })
+              }
               className="input_form"
             />
           </label>
@@ -95,6 +138,10 @@ function ProductCreate() {
               type="number"
               name=""
               id="energetic"
+              value={inputValue?.energetic}
+              onChange={(e) =>
+                setInputValue({ ...inputValue, energetic: e.target.value })
+              }
               className="input_form"
             />
           </label>
@@ -105,6 +152,10 @@ function ProductCreate() {
               type="text"
               name=""
               id="protein"
+              value={inputValue?.protein}
+              onChange={(e) =>
+                setInputValue({ ...inputValue, protein: e.target.value })
+              }
               className="input_form"
             />
           </label>
@@ -115,6 +166,10 @@ function ProductCreate() {
               type="text"
               name=""
               id="carb"
+              value={inputValue?.carb}
+              onChange={(e) =>
+                setInputValue({ ...inputValue, carb: e.target.value })
+              }
               className="input_form"
             />
           </label>
@@ -125,6 +180,10 @@ function ProductCreate() {
               type="text"
               name=""
               id="fat"
+              value={inputValue?.fat}
+              onChange={(e) =>
+                setInputValue({ ...inputValue, fat: e.target.value })
+              }
               className="input_form"
             />
           </label>
@@ -135,6 +194,10 @@ function ProductCreate() {
               type="text"
               name=""
               id="sodium"
+              value={inputValue?.sodium}
+              onChange={(e) =>
+                setInputValue({ ...inputValue, sodium: e.target.value })
+              }
               className="input_form"
             />
           </label>

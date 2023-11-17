@@ -6,7 +6,7 @@ export const AppProvider = ({ children }: any) => {
   const [page, setPage] = useState("bemVindo");
   const [isAdmin, setIsAdmin] = useState(false);
   //email login
-  const [email, setEmail] = useState();
+  const [email, setEmail] = useState<any>();
 
   // crud user
   const [updateUser, setUpdateUser] = useState(null);
@@ -50,6 +50,13 @@ export const AppProvider = ({ children }: any) => {
     "password": "",
     "isAdmin": true,
     "created_at": ""
+  } as {
+		"id"?: String | null,
+    "name"?: String,
+    "email"?: String | null,
+    "password"?: String,
+    "isAdmin"?: Boolean,
+    "created_at"?: String
   });
 
   const [logedUserInfo, setlogedUserInfo] = useState({
@@ -120,6 +127,7 @@ export const AppProvider = ({ children }: any) => {
         .then(response => response.json())
         .then(response => {
           console.log(response)
+            setEmail(searchUserInfo?.email)
             setSearchUserInfo({
               "id": null,
               "name": "",
@@ -128,10 +136,7 @@ export const AppProvider = ({ children }: any) => {
               "isAdmin": true,
               "created_at": ""
             })
-
             setCreateUser(null)
-  
-            window.alert("Novo cadastro, eu acho")
         })
         .catch(err => console.error(err));
     }
@@ -162,8 +167,6 @@ export const AppProvider = ({ children }: any) => {
           // })
 
           setUpdateUser(null)
-
-          window.alert("atualizou, eu acho")
         })
         .catch(err => console.error("response__err", err));
     }
@@ -185,21 +188,6 @@ export const AppProvider = ({ children }: any) => {
     }
   }, [deleteUser])
 
-
-  //email login
-  // useEffect(() => {
-  //   const options = {method: 'GET'};
-    
-  //   if(email) {
-  //     fetch(`http://localhost:3333/user/${email}`, options)
-  //       .then(response => response.json())
-  //       .then(response => {
-  //         console.log("response__", response)
-  //         setIsAdmin(response.isAdmin)
-  //       })
-  //       .catch(err => console.error("response__err", err));
-  //   }
-  // }, [email])
 
   //REQUISIÇÕES PRODUTO
 
@@ -249,8 +237,6 @@ export const AppProvider = ({ children }: any) => {
             })
 
             setCreateProduct(null)
-  
-            window.alert("Novo cadastro, eu acho")
         })
         .catch(err => console.error(err));
     }
@@ -271,8 +257,6 @@ export const AppProvider = ({ children }: any) => {
         .then(response => response.json())
         .then(response => {
           setUpdateProduct(null)
-
-          window.alert("atualizou, eu acho")
         })
         .catch(err => console.error("response", err));
     }

@@ -38,6 +38,7 @@ function ProductUpdate() {
     setSearchProductInfo(newSearchProductInfo);
     setUpdateProduct(searchProductInfo.id);
 
+    alert("Produto atualizado")
     setInputValue({
       name: "",
       ingredient: "",
@@ -49,6 +50,25 @@ function ProductUpdate() {
       sodium: "",
       cod_barras: "",
     });
+  };
+
+  const handleDelete = () => {
+    setDeleteProduct(Math.random())
+    setShowModal(!showModal)
+
+    setInputValue({
+      name: "",
+      ingredient: "",
+      quantity: "",
+      energetic: "",
+      protein: "",
+      carb: "",
+      fat: "",
+      sodium: "",
+      cod_barras: "",
+    });
+
+    alert('Produto excluído!')
   };
 
   return (
@@ -203,7 +223,7 @@ function ProductUpdate() {
           <div className="button_container">
             <button
               className="button_default delete_button"
-              onClick={() => setDeleteProduct("")}
+              onClick={() => handleDelete()}
             >
               Sim
             </button>

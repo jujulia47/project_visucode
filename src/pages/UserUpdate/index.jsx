@@ -3,7 +3,7 @@ import { AppContext } from "../../context";
 import "../../styles/css/pages/UserUpdate/index.css";
 
 function UserUpdate() {
-  const { searchUserInfo, setSearchUserInfo, setUpdateUser, setDeleteUser } =
+  const { setPage, searchUserInfo, setSearchUserInfo, setUpdateUser, setDeleteUser } =
     useContext(AppContext);
   const [inputValue, setInputValue] = useState(searchUserInfo);
   const [showModal, setShowModal] = useState(false);
@@ -24,12 +24,20 @@ function UserUpdate() {
     setSearchUserInfo(newSearchUserInfo);
     setUpdateUser(newSearchUserInfo);
 
+    alert('Cadastro atualizado')
     setInputValue({
       email: "",
       name: "",
       password: "",
       isAdmin: "",
     });
+  };
+
+  const handleDelete = () => {
+    alert('Usuário excluído!')
+    setDeleteUser(Math.random())
+    setShowModal(!showModal)
+    setPage('userCreate')
   };
 
   return (
@@ -125,24 +133,26 @@ function UserUpdate() {
       </section>
 
       {showModal ? (
-        <section className="modal">
-          <div className="alert">
-            <img src="/icons/warning.png" alt="warning" />
-            <p>Deseja excluir este usuário?</p>
-          </div>
-          <div className="button_container">
-            <button
-              className="button_default delete_button"
-              onClick={() => setDeleteUser(Math.random())}
-            >
-              Sim
-            </button>
-            <button
-              className="button_default add_button"
-              onClick={() => setShowModal(!showModal)}
-            >
-              Não
-            </button>
+        <section className="background-modal ">
+          <div className="modal ">
+            <div className="alert">
+              <img src="/icons/warning.png" alt="warning" />
+              <p>Deseja excluir este usuário?</p>
+            </div>
+            <div className="button_container">
+              <button
+                className="button_default delete_button"
+                onClick={() => handleDelete()}
+              >
+                Sim
+              </button>
+              <button
+                className="button_default add_button"
+                onClick={() => setShowModal(!showModal)}
+              >
+                Não
+              </button>
+            </div>
           </div>
         </section>
       ) : (

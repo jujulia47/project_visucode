@@ -4,6 +4,11 @@ import "../../styles/css/pages/UserCreate/index.css";
 
 function UserCreate() {
   const [hasClicked, setHasCliked] = useState(false);
+  const [inputValue, setInputValue] = useState({
+    email: "",
+    name: "",
+    password: "",
+  });
 
   const {
     setPage,
@@ -40,6 +45,13 @@ function UserCreate() {
     });
 
     setCreateUser(Math.random());
+    alert("Novo usuário cadastrado!")
+    setInputValue({
+      email: "",
+      name: "",
+      password: "",
+    });
+
   };
 
   return (
@@ -59,6 +71,10 @@ function UserCreate() {
               type="email"
               name=""
               id="email"
+              value={inputValue.email}
+              onChange={(e) =>
+                setInputValue({ ...inputValue, email: e.target.value })
+              }
               placeholder="Digite seu e-mail"
               className="input_form"
             />
@@ -70,6 +86,10 @@ function UserCreate() {
               type="text"
               name=""
               id="name"
+              value={inputValue.name}
+              onChange={(e) =>
+                setInputValue({ ...inputValue, name: e.target.value })
+              }
               placeholder="Digite seu nome"
               className="input_form"
             />
@@ -81,6 +101,10 @@ function UserCreate() {
               type="password"
               name=""
               id="password"
+              value={inputValue.password}
+              onChange={(e) =>
+                setInputValue({ ...inputValue, password: e.target.value })
+              }
               placeholder="Digite sua senha"
               className="input_form"
             />

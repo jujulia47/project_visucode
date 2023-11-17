@@ -29,6 +29,20 @@ function VisuUpdate() {
     setUpdateUser(newSearchUserInfo);
   };
 
+  const handleDelete = () => {
+    setDeleteUser(Math.random())
+    setShowModal(!showModal)
+
+    setInputValue({
+      email: "",
+      name: "",
+      password: "",
+      isAdmin: "",
+    });
+
+    alert('Usuário excluído!')
+  };
+
 
   return (
     <>
@@ -105,8 +119,7 @@ function VisuUpdate() {
           <div className="button_container">
             <button
               className="button_default delete_button"
-              // onClick={() => window.alert("excluído")}
-              onClick={() => setDeleteUser(Math.random())}
+              onClick={() => handleDelete()}
             >
               Sim
             </button>

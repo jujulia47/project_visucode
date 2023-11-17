@@ -22,7 +22,18 @@ function VisuRead() {
             INTEGRAL, SORO DE LEITE.
           </p>
         </article>
-        <table className="nutritional_info"></table>
+        <table className="nutritional_info">
+          <caption> Informação Nutricional </caption>
+          <tr><td>Valor Energético </td> <td>153 Kcal</td></tr>
+          <tr><td>Carboidrato</td> <td>19 g</td></tr>
+          <tr><td>Proteína</td> <td>1,7 g</td></tr>
+          <tr><td>Gorduras Totais</td> <td>6,3 g</td></tr>
+          <tr><td>Sódio</td> <td>65 mg</td></tr>
+        </table>
+
+
+
+
       </section>
     </>
   );
