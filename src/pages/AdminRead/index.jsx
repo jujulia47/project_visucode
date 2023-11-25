@@ -1,13 +1,10 @@
-import React, { useContext } from "react";
-import { AppContext } from "../../context";
-import Header from '../../components/Header'
-import Footer from '../../components/Footer'
+// import React, { useContext } from "react";
+// import { AppContext } from "../../context";
 
 import "../../styles/css/pages/VisuRead/index.css";
 
 function VisuRead() {
-  const { setPage } = useContext(AppContext);
-
+  // const { setPage } = useContext(AppContext);
   return (
     <>
       <section className="admin_read header">

@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { AppContext } from "../../context";
 import "../../styles/css/pages/ProductUpdate/index.css";
 
+//estados declarados no contexto
 function ProductUpdate() {
   const {
     searchProductInfo,
@@ -10,9 +11,13 @@ function ProductUpdate() {
     setDeleteProduct,
   } = useContext(AppContext);
 
+  //ESTADOS
   const [inputValue, setInputValue] = useState(searchProductInfo);
+  
+  //mostrar modal de excluir
   const [showModal, setShowModal] = useState(false);
 
+  //Atualizar produto adicionando novos valores nos input
   const handleUpdate = (e) => {
     e.preventDefault();
 
@@ -38,6 +43,7 @@ function ProductUpdate() {
     setSearchProductInfo(newSearchProductInfo);
     setUpdateProduct(searchProductInfo.id);
 
+    //limpar inputs depois que o formulário for enviado
     alert("Produto atualizado")
     setInputValue({
       name: "",
@@ -52,6 +58,7 @@ function ProductUpdate() {
     });
   };
 
+  //excluir produto
   const handleDelete = () => {
     setDeleteProduct(Math.random())
     setShowModal(!showModal)

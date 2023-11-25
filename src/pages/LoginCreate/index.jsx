@@ -2,24 +2,23 @@ import React, { useContext, useState } from "react";
 import { AppContext } from "../../context";
 import "../../styles/css/pages/LoginCreate/index.css";
 
+//estados declarados no contexto
 function LoginCreate() {
-
   const {
     setPage,
     setSearchUserInfo,
     setCreateUser,
   } = useContext(AppContext);
 
+  //criar novo usuário com os valores declarados nos inputs do form
   const handleCreate = (e) => {
     e.preventDefault();
-
     setSearchUserInfo({
       name: e.target.name.value,
       email: e.target.email.value,
       password: e.target.password.value,
       isAdmin: false,
     });
-
     setPage("visuRead")
     setCreateUser(Math.random());
   };
@@ -28,7 +27,6 @@ function LoginCreate() {
     <>
       <section className="login header">
         <h1>Cadastre-se</h1>
-
         <form
           onSubmit={(e) => handleCreate(e)}
           action=""

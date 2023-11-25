@@ -3,17 +3,23 @@ import { AppContext } from "../../context";
 import "../../styles/css/pages/UserUpdate/index.css";
 
 function VisuUpdate() {
+  //estados declarados no contexto
   const {
-    setPage,
+    // setPage,
     searchUserInfo,
     setSearchUserInfo,
     logedUserInfo,
     setUpdateUser,
     setDeleteUser
   } = useContext(AppContext);
+
+  //ESTADOS
   const [inputValue, setInputValue] = useState(logedUserInfo);
+
+  //modal para excluir conta
   const [showModal, setShowModal] = useState(false);
 
+  //Atualizar dados da conta
   const handleUpdate = (e) => {
     e.preventDefault();
     const searchValueName = e.target.name.value;
@@ -29,20 +35,20 @@ function VisuUpdate() {
     setUpdateUser(newSearchUserInfo);
   };
 
+  //Excluir conta
   const handleDelete = () => {
     setDeleteUser(Math.random())
     setShowModal(!showModal)
 
+    //limpar input
     setInputValue({
       email: "",
       name: "",
       password: "",
       isAdmin: "",
     });
-
     alert('Usuário excluído!')
   };
-
 
   return (
     <>

@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { AppContext } from "../../context";
 import "../../styles/css/pages/UserCreate/index.css";
 
+//ESTADOS
 function UserCreate() {
   const [hasClicked, setHasCliked] = useState(false);
   const [inputValue, setInputValue] = useState({
@@ -10,6 +11,7 @@ function UserCreate() {
     password: "",
   });
 
+  //estados declarados no contexto
   const {
     setPage,
     searchUserInfo,
@@ -18,6 +20,7 @@ function UserCreate() {
     setCreateUser,
   } = useContext(AppContext);
 
+  //Buscar usuário
   const handleSearch = (e) => {
     e.preventDefault();
 
@@ -33,6 +36,7 @@ function UserCreate() {
     }, 200);
   };
 
+  //Criar novo usuário
   const handleCreate = (e) => {
     e.preventDefault();
     const searchValueIsAdmin = e.target.isAdmin.value === "true";
@@ -44,6 +48,7 @@ function UserCreate() {
       isAdmin: searchValueIsAdmin,
     });
 
+    //limpar input depois que novo usuário for criado
     setCreateUser(Math.random());
     alert("Novo usuário cadastrado!")
     setInputValue({

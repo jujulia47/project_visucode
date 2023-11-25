@@ -3,6 +3,7 @@ import { AppContext } from "../../context";
 import "../../styles/css/pages/ProductCreate/index.css";
 
 function ProductCreate() {
+  //ESTADOS
   const [hasClicked, setHasCliked] = useState(false);
   const [inputValue, setInputValue] = useState({
     name: "",
@@ -16,32 +17,31 @@ function ProductCreate() {
     cod_barras: "",
   });
 
+  //estados declarados no contexto
   const {
-    setPage,
+    // setPage,
     searchProductInfo,
     setSearchProductInfo,
     setSearchProduct,
     setCreateProduct,
   } = useContext(AppContext);
 
-  console.log("searchProductInfo", searchProductInfo);
+  // console.log("searchProductInfo", searchProductInfo);
 
+  //Buscar produto
   const handleSearch = (e) => {
     e.preventDefault();
-
     const searchValue = e.target.searchValue.value;
     const newSearchProductInfo = searchProductInfo;
     newSearchProductInfo.cod_barras = searchValue;
-
     setSearchProductInfo(newSearchProductInfo);
     setSearchProduct(newSearchProductInfo);
   };
 
+  //Adicionar novo produto
   const handleCreate = (e) => {
     e.preventDefault();
-
-    console.log("e_target_product", e.target);
-
+    // console.log("e_target_product", e.target);
     setSearchProductInfo({
       name: e.target.nome.value,
       ingredient: e.target.ingredient.value,
@@ -54,6 +54,7 @@ function ProductCreate() {
       cod_barras: Number(e.target.cod_barras.value),
     });
 
+    //Limpar inputs depois que novo produto for declarado
     setCreateProduct(Math.random());
     alert("Novo produto cadastrado!");
     setInputValue({

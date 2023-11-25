@@ -6,6 +6,7 @@ function Header() {
   const { setPage ,setSearchUserInfo } =
   useContext(AppContext);
 
+  //limpar os dados quando o usuário sair
   const logOut = (e) => {
     e.preventDefault();
     setSearchUserInfo({

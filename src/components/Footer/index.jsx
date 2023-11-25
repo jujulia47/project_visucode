@@ -8,35 +8,51 @@ function Footer() {
     <>
       <footer>
         <ul className="footer_user">
-          <li className={`icon_repeat`} 
-          // onClick={() => window.alert("Repetindo")}
-          >
+          <li className={`icon_repeat`}>
             <img src="./icons/repeat.png" alt="" />
             {isAdmin ? "" : <p>Repetir</p>}
           </li>
-
-          <li className={`icon_read ${page === "visuRead" ? "active" : ""}`} onClick={() => setPage("visuRead")}>
+          <li
+            className={`icon_read ${page === "visuRead" ? "active" : ""}`}
+            onClick={() => setPage("visuRead")}
+          >
             <img src="./icons/read.png" alt="" />
             {isAdmin ? "" : <p>Leitura</p>}
           </li>
-          <li className={`icon_searc ${page === "visuResult" ? "active" : ""}`} onClick={() => setPage("visuResult")}>
+          <li
+            className={`icon_searc ${page === "visuResult" ? "active" : ""}`}
+            onClick={() => setPage("visuResult")}
+          >
             <img src="./icons/search.png" alt="" />
             {isAdmin ? "" : <p>Produtos</p>}
           </li>
-          {!isAdmin && ( 
+          {!isAdmin && (
             <>
-          <li className={`icon_user ${page === "visuUpdate" ? "active" : ""}`} onClick={() => setPage("visuUpdate")}>
-            <img src="./icons/user.png" alt="" />
-            <p>Usuário</p>
-          </li>
+              <li
+                className={`icon_user ${page === "visuUpdate" ? "active" : ""}`}
+                onClick={() => setPage("visuUpdate")}
+              >
+                <img src="./icons/user.png" alt="" />
+                <p>Usuário</p>
+              </li>
             </>
           )}
-          {isAdmin && ( 
+          {isAdmin && (
             <>
-              <li className={`icon_cart ${page === "productCreate" ? "active" : ""}`} onClick={() => setPage("productCreate")}>
+              <li
+                className={`icon_cart ${
+                  page === "productCreate" ? "active" : ""
+                }`}
+                onClick={() => setPage("productCreate")}
+              >
                 <img src="./icons/cart.png" alt="" />
               </li>
-              <li className={`icon_userPlus ${page === "userCreate" ? "active" : ""}`} onClick={() => setPage("userCreate")}>
+              <li
+                className={`icon_userPlus ${
+                  page === "userCreate" ? "active" : ""
+                }`}
+                onClick={() => setPage("userCreate")}
+              >
                 <img src="./icons/user_plus.png" alt="" />
               </li>
             </>

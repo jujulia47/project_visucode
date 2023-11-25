@@ -3,15 +3,15 @@ import { AppContext } from "../../context";
 import "../../styles/css/pages/Login/index.css";
 
 function Login() {
+  //estados declarados no contexto
   const { setPage, setEmail } = useContext(AppContext);
   // const [showPassword, setShowPassword] = useState(false);
 
+  //Fazer login bucando o usuário pelo email e quando entrar ir para a página "visuRead"
   const handleLogin = (e) => {
     e.preventDefault();
-
     const searchValue = e.target.userEmail.value;
-
-    console.log("searchValue", searchValue);
+    // console.log("searchValue", searchValue);
     setEmail(searchValue);
     setPage("visuRead");
   };

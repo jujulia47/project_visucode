@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
-import { AppContext } from "../../context";
+// import React, { useContext } from "react";
+// import { AppContext } from "../../context";
 
 import "../../styles/css/pages/VisuRead/index.css";
 
 function VisuRead() {
-  const { setPage } = useContext(AppContext);
+  // const { setPage } = useContext(AppContext);
 
   return (
     <>

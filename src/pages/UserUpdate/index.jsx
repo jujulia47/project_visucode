@@ -3,11 +3,17 @@ import { AppContext } from "../../context";
 import "../../styles/css/pages/UserUpdate/index.css";
 
 function UserUpdate() {
+  //estados declarados no contexto
   const { setPage, searchUserInfo, setSearchUserInfo, setUpdateUser, setDeleteUser } =
     useContext(AppContext);
+
+  //ESTADOS
   const [inputValue, setInputValue] = useState(searchUserInfo);
+
+  //modal para excluir usuário
   const [showModal, setShowModal] = useState(false);
 
+  //Atualizar infos do usuário
   const handleUpdate = (e) => {
     e.preventDefault();
 
@@ -20,10 +26,10 @@ function UserUpdate() {
     newSearchUserInfo.password = searchValuePassword;
     newSearchUserInfo.isAdmin = searchValueIsAdmin;
 
-
     setSearchUserInfo(newSearchUserInfo);
     setUpdateUser(newSearchUserInfo);
 
+    //limpar input
     alert('Cadastro atualizado')
     setInputValue({
       email: "",
@@ -33,6 +39,7 @@ function UserUpdate() {
     });
   };
 
+  //excluir usuário
   const handleDelete = () => {
     alert('Usuário excluído!')
     setDeleteUser(Math.random())
