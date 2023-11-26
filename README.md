@@ -44,3 +44,17 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+# Métodos
+
+## POST
+Com o método post é feito os inserts no banco de dados, a criação dos usuários e dos produtos, além disso nos usuários fazemos uma validação para verificar se o e-mail do mesmo já está em uso.
+
+## GET
+O método get foi utilizado para fazer as requisições dos usuários e dos produtos.
+
+## PUT
+Este método faz a edição de usuários e de produtos.
+
+## DELETE
+E por fim o delete faz a exclusão tanto de usuários quanto de produtos cadastrados.
