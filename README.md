@@ -51,7 +51,7 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-# Métodos
+# Methods
 
 ## POST
 Com o método post é feito os inserts no banco de dados, a criação dos usuários e dos produtos, além disso nos usuários fazemos uma validação para verificar se o e-mail do mesmo já está em uso.
